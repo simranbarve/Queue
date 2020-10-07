@@ -13,7 +13,7 @@ class Queue:
             return False
 
     def isfull(self):
-        if self.rear = self.queue_size:
+        if self.rear == self.queue_size:
             return True
         else:
             return False
@@ -23,15 +23,28 @@ class Queue:
             if self.isempty():
                 self.rear += 1
                 self.front += 1
-                self.stack[self.rear] =  value
+                self.queue[self.rear] =  value
             else:
                 self.rear += 1
-                self.stack[self.rear] =  value
+                self.queue[self.rear] =  value
             return True
         else:
             return False
 
-    def dequeue(self,value):
+    def dequeue(self):
         if not self.isfull() and not self.isempty():
-            return self.queue[self.rear]
+            returnval = self.queue[self.rear]
+            self.queue[self.rear] = None
+            self.rear -= 1
+            return returnval
         return False
+
+    def printing(self):
+        print(self.queue)
+
+Queue1 = Queue(6)
+Queue1.enqueue(3)
+Queue1.enqueue(2)
+Queue1.enqueue(7)
+Queue1.dequeue()
+Queue1.printing()
