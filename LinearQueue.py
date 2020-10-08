@@ -1,4 +1,4 @@
-class Queue:
+class LinearQueue:
 
     '''arg 'queue_size' is automatically set to 7 if no value is passed'''
     def __init__(self, queue_size = 7):
@@ -39,7 +39,7 @@ class Queue:
         return False
 
     def dequeue(self) -> typing.Union[bool, int]:
-        '''if the
+        '''if the queue isnt full or empty it can add something to the queue'''
         if not self.isfull() and not self.isempty():
             returnval = self.queue[self.rear]
             self.queue[self.rear] = None
@@ -47,13 +47,14 @@ class Queue:
             return returnval
         return False
 
+    '''allows the user to print the queue (testing reasons)'''
     def printing(self) -> typing.Union[bool]:
         if not self.isempty():
             print(self.queue)
             return True
         return False
 
-Queue1 = Queue(6)
+Queue1 = LinearQueue(6)
 Queue1.enqueue(3)
 Queue1.enqueue(2)
 Queue1.enqueue(7)
